@@ -13,9 +13,9 @@ from selenium.webdriver.common.by import By
 # 페이지 스크롤링을 위한 모듈
 from selenium.webdriver.common.keys import Keys
 # 크롤링할 url 주소
-url = "https://www.instagram.com/explore/tags/JMT/"
+url = "https://www.instagram.com/explore/tags/존맛/"
 # 다운로드 받은 driver 주소
-DRIVER_DIR = "C:/Users/Gangmin/Desktop/gangmin/3-1/DW/teamproject/for git/chromedriver.exe"
+DRIVER_DIR = "C:/Users/Gangmin/Desktop/gangmin/3-1/DW/teamproject/for git/crawler/chromedriver.exe"
 
 # 크롬 드라이버를 이용해 임의로 크롬 브라우저를 실행시켜 조작한다.
 driver = webdriver.Chrome(DRIVER_DIR)
@@ -35,14 +35,17 @@ first_div.click()
 #서울데이터뽑기, 리스트제거하기, 
 #file
 f = open("list.txt",'w',encoding = 'utf-8')
+#데이터 실제 수
+num = 0
 #여기부터 반복구간
-for j in range(100):
+for jj in range(30000):
     #피드찾기
     while(True):
             try:
-                wait = WebDriverWait(driver, 5)
-                wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, ".EZdmt")))
+                wait = WebDriverWait(driver, 9)
+                wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "body > div._2dDPU.vCf6V > div.zZYga > div > article > div.eo2As > div.EtaWk > ul > li > div > div > div.C4VMK > span")))
                 feed = driver.find_element_by_css_selector("body > div._2dDPU.vCf6V > div.zZYga > div > article > div.eo2As > div.EtaWk > ul > li > div > div > div.C4VMK > span")
+                
                 break;
             except :
                 print('err')
@@ -79,12 +82,14 @@ for j in range(100):
                        tag += i[j]
                else:
                    tag += i[j]
-    print(rlist)
+    
+    
     if(len(rlist)!=0):
         for p in rlist:
             f.write(p)
         f.write('\n')
-    
+        num+=1
+        print('all : ',jj+1,', real : ',num)
     arrow = driver.find_element_by_css_selector("body > div._2dDPU.vCf6V > div.EfHg9 > div > div > a.HBoOv.coreSpriteRightPaginationArrow")
     arrow.click()
 f.close()
