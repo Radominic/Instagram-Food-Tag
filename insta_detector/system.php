@@ -13,6 +13,9 @@ mysqli_query($conn, "set session character_set_client=utf8;");
 //검색어로 tag를 입력하지 않도록 예외 처리 해야한다.
 
 $search = $_GET["searchbox"];
+if($search == 'tag'){
+die("problem");
+}
 /*
 //connection check
 if($conn->connect_error){
@@ -50,7 +53,6 @@ for($p=0;$p<$num;$p++)
 			where name = "."'".addslashes($name) ."'"."
 			)";
 			$result2 =  $conn -> query($sql);
-			echo $sql;
 			$flag = $result2 -> fetch_array();
 			//flag 1이면 로우 존재, 0이면 없음
 			//로우가 없을때
