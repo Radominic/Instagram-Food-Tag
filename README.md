@@ -1,4 +1,5 @@
 # Food Detector - Retrieving the most popular food in Instagram by frequency and like.
+
 <hr/>
 
 ## Getting Started
@@ -9,7 +10,9 @@ WAMP
 MySQL
 Python
 Tool for using Php (notepad, visual studio,…)
+
 <hr/>
+
 ## Running the tests
 Explain how to run the automated tests for this system
 ### Break down into end to end tests
@@ -20,18 +23,21 @@ You can first check sources for the Instagram data from the map.
 Then input the word you want to search like food or province.
 Then you’ll get result of frequency of tag, and the number of likes from the word you searched.
 We showed two tables for the frequency and likes from the word we searched.
+
 <hr/>
 
 From the info page, you can get our team information and brief explanation of our project.
 ## Deployment
 Since our project for data gathering, and refinement is automated, we can make live system.
 If we use other sources rather than Instagram, we could get better output.
+
 <hr/>
 
 ## Built With
 •	VisualStudio – For making web, inserting the query to use in MySQL
 •	MySQL – Making query for the database
 •	Python – Data preprocessing
+
 <hr/>
 
 ## Authors
