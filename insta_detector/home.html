@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>TEAM 2</title>
+<title>Food Detector</title>
 <script type="text/javascript" src="jquery/lib/jquery.js"></script>
 <script type='text/javascript' src='jquery/lib/jquery.bgiframe.min.js'></script>
 <script type='text/javascript' src='jquery/lib/jquery.ajaxQueue.js'></script>
@@ -11,12 +11,6 @@
 <link href="https://fonts.googleapis.com/css?family=jejuhallasan" rel="stylesheet">
 
 <style>
-	.a_style {
- color: yellow;
- text-decoration: none;
- transition: 1s;
-}
-.a_style:hover { text-shadow: 0 0 .1em, 0 0 .3em; }
 .overlay {
   height: 0%;
   width: 100%;
@@ -29,7 +23,6 @@
   overflow-y: hidden;
   transition: 0.5s;
 }
-
 .overlay-content {
   position: relative;
   top: 25%;
@@ -37,7 +30,6 @@
   text-align: center;
   margin-top: 30px;
 }
-
 .overlay a {
   padding: 8px;
   text-decoration: none;
@@ -46,33 +38,19 @@
   display: block;
   transition: 0.3s;
 }
-
- .overlay a:hover, .overlay a:focus {
-  color: #f1f1f1;
-} 
-
 .overlay .closebtn {
   position: absolute;
   top: 20px;
   right: 45px;
   font-size: 60px;
 }
-@media screen and (max-height: 450px) {
-  .overlay {overflow-y: auto;}
-  .overlay a {font-size: 20px}
-  .overlay .closebtn {
-  font-size: 40px;
-  top: 15px;
-  right: 35px;
-  }
-}
+
 .topnav {
   overflow: hidden;
   border : 0 0 0 0;
   margin: 0 0 0 0 ;
   background-color: white;
 }
-
 .topnav a {
   float: left;
   color: black;
@@ -81,8 +59,6 @@
   text-decoration: none;
   font-size: 25px;
 }
-
-
 .topnav-right {
   float: right;
 }
@@ -96,9 +72,8 @@
      -moz-transform: scale(0);
       -ms-transform: scale(0);
        -o-transform: scale(0);
-          transform: scale(0); 
+          transform: scale(0);
 }
-
 .link-7 a:hover:before {
   border-bottom: solid 4px #4fa6d9;
   width: 60px;
@@ -117,7 +92,6 @@
   30% { -webkit-transform: scale(1.1); }
   40% { -webkit-transform: scale(1); }
 }
-
 @-webkit-keyframes heartbeat-x {
   0% { -webkit-transform: scaleX(0); }
   10% { -webkit-transform: scaleX(1); }
@@ -125,7 +99,6 @@
   30% { -webkit-transform: scaleX(1); }
   40% { -webkit-transform: scaleX(0); }
 }
-
 @keyframes heartbeat {
   0% { transform: scale(1); }
   10% { transform: scale(1.1); }
@@ -133,7 +106,6 @@
   30% { transform: scale(1.1); }
   40% { transform: scale(1); }
 }
-
 @keyframes heartbeat-x {
   0% { transform: scaleX(0); }
   10% { transform: scaleX(1); }
@@ -153,122 +125,146 @@
               0 0 40px #ff00de,0 0 70px #ff00de,0 0 80px #ff00de,
               0 0 100px #ff00de,0 0 150px #ff00de ">#권혁윤#교수님#감사합니다</a>
 				</div>
-			</div>
+      </div>
   <script>
 		function openNav() {
 			document.getElementById("myNav").style.height = "100%";
 		}
-		
 		function closeNav() {
 			document.getElementById("myNav").style.height = "0%";
 		}
+
 	</script>
 	<script>
-	var availableTags = [
-	'가락시장','가산디지털단지','강남','강남구청','강동','강동구청','강변','개롱','개화산',
-'거여','건대입구','경복궁','경찰병원','고덕','고려대','고속터미널','공덕','공릉','광나루',
-'광화문','광흥창','교대','구로디지털단지','구산','구의','구파발','군자','굽은다리','금호',
-'길동','길음','김포공항','까치산','낙성대','남구로','남부터미널','남성','남태령','내방',
-'노원','녹번','녹사평','논현','답십리','당고개','당산','대림','대청','대치','대흥','도곡',
-'도림천','도봉산','독립문','독바위','돌곶이','동대문','동대문역사문화공원','동대입구',
-'동묘앞','동작','둔촌동','디지털미디어시티','뚝섬','뚝섬유원지','마곡','마들','마장',
-'마천','마포','마포구청','망원','매봉','먹골','면목','명동','명일','목동','몽촌토성',
-'무악재','문래','문정','미아','미아사거리','반포','발산','방배','방이','방화','버티고개','보라매',
-'보문','복정','봉천','봉화산','불광','사가정','사당','삼각지','삼성','상계','상도',
-'상봉','상수','상왕십리','상월곡','상일동','새절','서대문','서울','서울대입구','서초',
-'석계','석촌','선릉','성수','성신여대입구','송정','송파','수락산','수서','수유','숙대입구',
-'숭실대입구','시청','신금호','신길','신답','신당','신대방','신대방삼거리','신도림','신림','신사','신설동','신용산',
-'신정','신정네거리','신천','신촌','신풍','쌍문','아차산','아현','안국','안암','암사','압구정','애오개','약수',
-'양재','양천구청','양평','어린이대공원','여의나루','여의도','역삼','역촌','연신내','영등포구청','영등포시장',
-'오금','오목교','옥수','온수','올림픽공원','왕십리','용답','용두역','용마산','우장산','월곡','월드컵경기장',
-'을지로3가','을지로4가','을지로입구','응암','이대','이수','이촌','이태원','일원','잠실','잠실나루',
-'잠원','장승배기','장지','장한평','제기동','종각','종로3가','종로5가','종합운동장','중계','중곡','중화','증산',
-'창동','창신','천왕','천호','청구','청담','청량리','총신대입구','충무로','충정로','태릉입구','하계',
-'학동','학여울','한강진','한성대입구','한양대','합정','행당','혜화','홍대입구','홍제','화곡',
-'화랑대','회현','효창공원앞','군만두',	'가자미구이',	'계란찜',	'근대된장국',	'나박김치',	'당근농장',	'두부양념조림',	'메밀국수',
-'깐풍기',	'가자미튀김',	'고구마 튀김',	'근대볶음',	'낙지덮밥',	'당근쥬스',	'두부조림',	'메추리알조림',
-'냉면',	'가지나물',	'고구마줄기무침',	'금귤',	'낙지볶음',	'더덕구이',	'두유',	'멜론',
-'딸기',	'갈비구이',	'고구마줄기볶음',	'김구이',	'낙지찌개',	'더덕생채',	'두유음료',	'멸치볶음',
-'라면',	'갈비찜',	'고구마채튀김',	'김밥',	'냉이나물',	'데친 브로콜리',	'딸기',	'명란젓',
-'막걸리',	'갈비탕',	'고구마튀김',	'김초밥',	'냉이된장찌개',	'도라지구이',	'떡국',	'모과차',
-'맥주',	'갈치구이',	'고기죽',	'김치국',	'너구리라면',	'도라지나물',	'떡볶이',	'모나카',
-'볶음밥',	'갈치무조림',	'고등어구이',	'김치김밥',	'노각생채',	'도라지볶음',	'라면',	'모닝빵',
-'샌드위치',	'갈치찜',	'고등어무조림',	'김치볶음',	'녹두전',	'도라지생채',	'라자냐',	'모밀국수',
-'소주',	'갈치튀김',	'고등어조림',	'김치볶음밥',	'녹차',	'도미초밥',	'레몬차',	'모시조개미역국',
-'양장피',	'감자국',	'고등어찜',	'김치사발면',	'누룽지',	'도우넛',	'롤케익',	'모카빵',
-'우동',	'감자샐러드',	'고등어초밥',	'김치전',	'느타리버섯볶음',	'돈까스',	'롯데포비',	'몽쉘통통',
-'잡채밥',	'감자야채볶음',	'고량주',	'김치찌개',	'다이제스티브',	'돈육김치찌개',	'리츠크래커',	'무나물',
-'잡탕밥',	'감자전',	'고사리볶음',	'김치참치볶음밥',	'단감',	'돌냄비우동',	'링도너츠',	'무말랭이무침',
-'짜장면',	'감자조림',	'고추잎나물',	'까페라떼',	'단팥빵',	'돌솥비빔밥',	'마가렛트',	'무새우젓국',
-'짬뽕',	'감자탕',	'고추튀김',	'깍두기',	'단팥죽',	'동치미',	'마늘바게뜨',	'무생채',
-'카스텔라',	'감자튀김',	'골뱅이무침',	'깨강정',	'달걀국',	'동태국',	'마늘바게트',	'무숙채',
-'칼국수',	'감자햄볶음',	'곰보빵',	'깨죽',	'달걀말이',	'동태찌개',	'마늘쫑볶음',	'문배주',
-'커피',	'갑오징어초밥',	'곱창전골',	'깻잎김치',	'달걀장조림',	'동태찜',	'마늘쫑조림',	'물',
-'콜라',	'갓김치',	'구기자차',	'깻잎나물',	'달걀찜',	'돼지갈비찜',	'마른새우볶음',	'물냉면',
-'탕수육',	'강남콩밥',	'국밥',	'깻잎전',	'달래된장찌개',	'돼지고기고추장볶음',	'마파두부',	'물오징어볶음',
-'파르페',	'거봉',	'국수장국',	'깻잎조림',	'달래생채',	'돼지고기장조림',	'마파두부밥',	'미나리 나물',
-'팥빙수',	'건빵',	'굴비구이',	'꼬깔콘',	'닭고기덮밥',	'돼지국밥',	'막걸리',	'미나리나물',
-'해파리냉채',	'건오징어볶음',	'굴전',	'꼬막찜',	'닭고치구이',	'된장찌개',	'만두국',	'미역 오이냉국',
-'치즈버거',	'검정콩밥',	'굴회',	'꽁치구이',	'닭야채볶음밥',	'두릅나물',	'맛동산',	'미역국',
-'케이크',	'게장',	'귤',	'꽈리고추오징어조림',	'닭죽',	'두부덮밥',	'맥도날드',	'미역오이초무침',
-'가래떡',	'계란죽',	'근대나물',	'꿀꽈배기',	'닭찜',	'두부된장국',	'맥주',	'미역죽','미트소스스파게티',	'새우회',	'아몬드',	'요플레',	'찹쌀도너츠',	'프렌치프라이',
-'민물장어간장구이',	'생당근',	'아몬드빼빼로',	'우거지국',	'찹쌀산자',	'피넛버터토스트','바나나',	'생맥주',	'아욱국',	'우동',	'채소튀김',	'피자',
-'바나나킥',	'생선그라탕',	'안동소주',	'우롱차',	'청포묵김무침',	'피칸파이','밤',	'생선까스',	'안심스테이크',	'우엉볶음',	'체리토마토',	'하이라이스',
-'밤밥',	'생선묵조림',	'알밥',	'우엉조림',	'초코도넛',	'한치덮밥','방울토마토',	'생선초밥',	'알찜',	'우유',	'초콜렛',	'함박스테이크',
-'배',	'생크림케익',	'애플잼 쿠키',	'우유식빵',	'총각김치',	'핫도그','배추김치',	'생태찌개',	'애플파이',	'우족탕',	'충무김밥',	'핫케익',
-'배추된장국',	'샤브레',	'애호박나물',	'울면',	'취나물무침',	'해물덮밥','백김치',	'샤브샤브',	'애호박새우볶음',	'원두커피',	'치즈',	'해물도리아',
-'백설기',	'샴페인',	'애호박찜',	'유부초밥',	'치즈페스츄리',	'해물스파게티','뱅어포구이',	'설렁탕',	'야채김밥',	'육개장',	'치즈핫도그',	'해물탕',
-'뱅어포볶음',	'성게알초밥',	'야채밥',	'율무차',	'치킨샌드위치',	'해파리냉채','버거킹버거',	'소고기국밥',	'야채샌드위치',	'인디언밥',	'카레라이스',	'햄버거',
-'버섯덮밥',	'소보로빵',	'야채샐러드',	'인절미',	'카스테라',	'현미밥','버섯리조또',	'소세지야채볶음',	'야채스프',	'자두',	'카스텔라',	'호떡',
-'버섯죽',	'소주',	'야채죽',	'자몽',	'카페오레',	'호박나물','버섯줄기볶음',	'솎음배추겉절이',	'야채호빵',	'자장밥',	'카푸치노',	'호박볶음',
-'버터코코넛',	'솔잎차',	'약과',	'잔멸치볶음',	'칼국수',	'호박잎찜','버터크림빵',	'송편',	'약식',	'잡곡밥',	'캔커피',	'호박전',
-'버터토스트',	'쇠갈비찜',	'양갱',	'잡채',	'캘리포니아롤',	'호박죽','베이컨',	'쇠고기 전골',	'양배추',	'잡채밥',	'커스터드',	'호박찌개',
-'병어구이',	'쇠고기국',	'양배추찜',	'잡탕밥',	'코카콜라',	'호빵','병어튀김',	'쇠고기김밥',	'양송이덮밥',	'잣죽',	'코코아',	'홍시',
-'보리밥',	'쇠고기덮밥',	'양송이버섯',	'장어구이',	'콜라',	'홍차','보쌈김치',	'쇠고기로스구이',	'양송이수프',	'장어초밥',	'콩국수',	'환타',
-'복숭아',	'쇠고기무국',	'양송이스프',	'장조림',	'콩나물국',	'회덮밥','부대고기찌개',	'쇠고기미역국',	'어니언링',	'잼토스트',	'콩나물국밥',	'후렌치토스트',
-'부대찌개',	'쇠고기볶음밥',	'어묵',	'저지방우유',	'콩나물밥',	'흰죽','부추파전',	'쇠고기장조림',	'어묵국',	'전복죽',	'콩나물비빔밥',	
-'북어국',	'쇠등심구이',	'어묵볶음',	'전어초밥',	'콩밥',	'북어찜',	'수박',	'어묵조림',	'절편',	'콩비지찌개',	
-'불고기',	'수수밥',	'연근조림',	'제육덮밥',	'콩자반',	'불고기 덮밥',	'수정과',	'연어알초밥',	'제육돌솥비빔밥',	'콩조림',	
-'불고기구이',	'수제비',	'열무김치',	'제육볶음',	'크라상',	'블랙커피',	'숙주나물',	'열무비빔밥',	'조개국',	'크루아상',	
-'비빔국수',	'순대',	'영양돌솥밥',	'조기구이',	'크림빵',	'비빔냉면',	'순대국밥',	'오곡밥',	'조기찜',	'크림수프',	
-'비빔면',	'순대볶음',	'오렌지',	'조밥',	'크림스프',	'비빔밥',	'순두부찌개',	'오렌지쥬스',	'중식볶음밥',	'키위',	
-'비엔나',	'슈크림',	'오므라이스',	'쥐포구이',	'토란국',	'빈대떡',	'슈크림빵',	'오믈렛',	'쥐포무침',	'토란대무침',	
-'빼빼로',	'스테이크',	'오예스',	'쥐포볶음',	'토마토',	'사과',	'스파게티',	'오이',	'즉석밥',	'토마토쥬스',	
-'사이다',	'스폰지케익',	'오이도라지생채',	'짜파게티',	'파김치',	'살구',	'스프라이트',	'오이부추무침',	'짬뽕밥',	'파래무침',	
-'삼각김밥',	'시금치나물',	'오이생채',	'찐고구마',	'파인애플',	'삼겹살구이',	'시금치된장국',	'오이소박이',	'찐만두',	'파전',
-'삼계탕',	'시래기나물',	'오이피클',	'차수수밥',	'팝콘',	'삼치구이',	'시래기된장국',	'오징어 땅콩',	'찰밥',	'팥밥',	
-'상추',	'식빵',	'오징어덮밥',	'참외',	'팥빵',	'새우도리아',	'식혜',	'오징어무침',	'참치김밥',	'팥죽',	
-'새우볶음밥',	'신라면',	'오징어양념구이',	'참치김치찌개',	'팥호빵',	'새우젓두부찌개',	'실론티',	'오징어찌개',	'참치두부찌개',	'패스트리',	
-'새우초밥',	'쌀밥',	'오징어채볶음',	'참치볶음밥',	'포도',	'새우튀김',	'썬칩',	'옥수수빵',	'참치죽',	'포도쥬스',	
-'새우튀김덮밥',	'쑥갓나물',	'와플',	'참치초밥',	'풋고추멸치볶음',	'새우필라프',	'아구찜',	'완두콩밥',	'참치회덮밥',	'프렌치빵',	
-	];
-	</script>
+
+  </script>
+   <img src="gor.png" onclick="openNav()" style="position:absolute; top: 25.2%; left :0%;">
+
 <div class="topnav">
   <div class="topnav-right">
     <div class="link-7">
       <a  href="home.html">Home</a>
-      <a href="info.html">Info</a>
-      <c  style="color:white;">hihihi</c>
+      <a href="info.html">Info&nbsp;&nbsp;&nbsp;&nbsp;</a>
     </div>
   </div>
 </div>
+<a href="https://sites.google.com/view/seoultech-bigdata"><img src="fastlogo.png" style="position: absolute; left:40%; width:350px; top:2%;"></a>
+<div class="loader"></div>
 
-<img src="cat2.gif" onclick="openNav()" width=150px style="position:absolute; top:56%; left:45%">
 
 
 	<form name="form01" method="GET" action="system.php">
-		<input type="text" id="searchbox" name="searchbox" placeholder="Search..."; size="30"; 
+		<input type="text" id="searchbox" name="searchbox" value="Search..."; onFocus="clearText(this)" size="30";
 		style=" -ms-user-select: none; -moz-user-select: -moz-none;-khtml-user-select: none;-webkit-user-select: none;user-select: none;height:50px; text-indent:25px; font-family: 'jejuhallasan'; font-size:35px; vertical-align:middle; display: flex;
-		 border-radius:15px; border-color:#646060; position:absolute; top:70%; left:35%;">
-	  <input type="submit" id="submit" name="submit" value="search" hidden style="-webkit-border-radius:5px;
-		-moz-border-radius:5px; border-radius:5px; height:54px; font-family:양재샤넬; font-size:35px; vertical-align:middle;">
+		 border-radius:15px; border-color:#646060; position:absolute; top:72%; left:5%;">
 	</form>
+
+
 
 	<script>
 	$(document).ready(function() {
 	    $("#searchbox").autocomplete(availableTags,{ matchContains: false ,selectFirst: false});
 	});
-	</script>
+  </script>
 
+  <script type='text/javascript' src='http://www.google.com/jsapi'></script>
+  <script type='text/javascript'>google.load('visualization', '1', {'packages': ['geochart']});
+  google.setOnLoadCallback(drawVisualization);
+
+    function clearText(thisOne){
+      if(thisOne.defaultValue==thisOne.value)
+      thisOne.value="";
+    }
+
+    function drawVisualization() {
+    	var data = new google.visualization.DataTable();
+
+    	data.addColumn('string', 'Country');
+    	data.addColumn('number', 'Value');
+    	data.addColumn({type:'string', role:'tooltip'});
+
+      var ivalue = new Array();
+
+      data.addRows([[{v:'KR-11', f:'서울'},0,'Click to change background color']]);
+    	ivalue['KR-11'] = '#e4421f';
+
+    	data.addRows([[{v:'KR-26', f:'부산'},1,'Click to change background color']]);
+    	ivalue['KR-26'] = '#3182BD';
+
+    	data.addRows([[{v:'KR-27',f:'대구'},2,'Click to change background color']]);
+    	ivalue['KR-27'] = '#3182BD';
+
+    	data.addRows([[{v:'KR-30',f:'대전'},3,'Click to change background color']]);
+    	ivalue['KR-30'] = '#3182BD';
+
+    	data.addRows([[{v:'KR-29',f:'광주'},4,'Click to change background color']]);
+    	ivalue['KR-29'] = '#3182BD';
+
+    	data.addRows([[{v:'KR-28',f:'인천'},5,'Click to change background color']]);
+    	ivalue['KR-28'] = '#3182BD';
+
+    	data.addRows([[{v:'KR-31',f:'울산'},6,'Click to change background color']]);
+    	ivalue['KR-31'] = '#3182BD';
+
+    	data.addRows([[{v:'KR-43',f:'충청북도'},21,'']]);
+    	ivalue['KR-43'] = '#3182BD';
+
+    	data.addRows([[{v:'KR-44',f:'충청남도'},21,'']]);
+    	ivalue['KR-44'] = '#3182BD';
+
+    	data.addRows([[{v:'KR-42',f:'강원도'},21,'']]);
+    	ivalue['KR-42'] = '#9ECAE1';
+
+    	data.addRows([[{v:'KR-41',f:'경기도'},21,'']]);
+    	ivalue['KR-41'] = '#9ECAE1';
+
+    	data.addRows([[{v:'KR-47',f:'경상북도'},21,'']]);
+    	ivalue['KR-47'] = '#9ECAE1';
+
+    	data.addRows([[{v:'KR-48',f:'경상남도'},21,'']]);
+    	ivalue['KR-48'] = '#9ECAE1';
+
+    	data.addRows([[{v:'KR-49',f:'제주도'},7,'Click to change background color']]);
+    	ivalue['KR-49'] = '#9ECAE1';
+
+    	data.addRows([[{v:'KR-45',f:'전라북도'},21,'Click to change background color']]);
+    	ivalue['KR-45'] = '#9ECAE1';
+
+    	data.addRows([[{v:'KR-46',f:'전라남도'},21,'Click to change background color']]);
+    	ivalue['KR-46'] = '#9ECAE1';
+
+    	var options = {
+    		backgroundColor: {fill:'#FFFFFF',stroke:'#FFFFFF' ,strokeWidth:0 },
+    		colorAxis:  {minValue: 0, maxValue: 21,  colors: ['#ed1212','#ff8a00','#e4e200','#d112b8','#00b2eb','#16d740','#1705ec','#a70cd5','#d112b8','#9ECAE1','#9ECAE1','#9ECAE1','#9ECAE1','#9ECAE1','#9ECAE1','#9ECAE1','#9ECAE1','#DEEBF7','#DEEBF7','#DEEBF7','#DEEBF7','#f7e0f4',]},
+    		legend: 'none',
+    		backgroundColor: {fill:'#ffffff',stroke:'#f5f5f5' ,strokeWidth:0 },
+    		datalessRegionColor: '#ffffff',
+    		displayMode: 'regions',
+    		enableRegionInteractivity: 'true',
+    		resolution: 'provinces',
+    		sizeAxis: {minValue: 1, maxValue:1,minSize:10,  maxSize: 10},
+    		region:'KR', //country code
+    		keepAspectRatio: true,
+    		width:800,
+    		height:600,
+    		tooltip: {textStyle: {color: '#444444'}, trigger:'focus'}
+    	};
+
+    	var chart = new google.visualization.GeoChart(document.getElementById('visualization'));
+    	google.visualization.events.addListener(chart, 'select', function() {
+    	 	var selection = chart.getSelection();
+    	 	if (selection.length == 1) {
+    	 		var selectedRow = selection[0].row;
+    	 		var selectedRegion = data.getValue(selectedRow, 0);
+    	 		if(ivalue[selectedRegion] != '') {
+    	 			//document.getElementsByTagName('body')[0].style.background=ivalue[selectedRegion];
+    	 		}
+    	 	}
+    	});
+    	chart.draw(data, options);
+    }
+
+  </script>
+  <div style="width:400px; position:absolute; top: 35%; left:50%;" id='visualization'></div>
 </body>
 </html>

@@ -2,20 +2,55 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>TEAM 2</title>
-<script type="text/javascript" src="jquery/lib/jquery.js"></script>
-<script type='text/javascript' src='jquery/lib/jquery.bgiframe.min.js'></script>
-<script type='text/javascript' src='jquery/lib/jquery.ajaxQueue.js'></script>
-<script type='text/javascript' src='jquery/jquery.autocomplete.js'></script>
-<link rel="stylesheet" type="text/css" href="jquery/jquery.autocomplete.css" />
-<link href="https://fonts.googleapis.com/css?family=jejuhallasan" rel="stylesheet">
+<title>Food Detector</title>
 
 <style>
+s {
+border: solid black;
+border-width: 0 10px 10px 0;
+display: inline-block;
+padding: 10px;
+}
+.up {
+transform: rotate(-135deg);
+-webkit-transform: rotate(-135deg);
+}
+#navbar {
 
+  overflow: hidden;
+  margin:0px -8.3px 0px -8px;
+  background-color:rgb(241, 209, 104);
+}
+#navbar a {
+  float: left;
+  display: block;
+  font-family:'Comic Sans MS';
+  font-weight:bold;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+#navbar a:hover {
+  background-color: rgb(250, 125, 108);
+  color: black;
+}
+.content {
+  padding: 16px;
+}
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+.sticky + .content {
+  padding-top: 60px;
+}
 .topnav {
   overflow: hidden;
   border : 0 0 0 0;
-  margin: 0 0 0 0 ;
+  margin: 0px 0px 15px 0px ;
   background-color: white;
 }
 
@@ -27,27 +62,21 @@
   text-decoration: none;
   font-size: 25px;
 }
-
-
 .topnav-right {
   float: right;
 }
 .link-7 a:before {
-  content: '';
-  border-bottom: solid 1px #4fa6d9;
-  position: absolute;
+  position: relative;
   bottom: 0; left: 15%;
   width: 0;
   -webkit-transform: scale(0);
      -moz-transform: scale(0);
       -ms-transform: scale(0);
        -o-transform: scale(0);
-          transform: scale(0); 
+          transform: scale(0);
 }
 
 .link-7 a:hover:before {
-  border-bottom: solid 4px #4fa6d9;
-  width: 60px;
   -webkit-animation: heartbeat-x 1.7s infinite ease-in;
           animation: heartbeat-x 1.7s infinite ease-in;
 }
@@ -87,19 +116,104 @@
   30% { transform: scaleX(1); }
   40% { transform: scaleX(0); }
 }
+::-webkit-scrollbar{
+  display:none;
+}
+
 </style>
 </head>
-<body>
+<body style="-ms-overflow-style: none;">
 
-<div class="topnav">
-  <div class="topnav-right">
-    <div class="link-7">
-      <a  href="home.html">Home</a>
-      <a href="info.html">Info</a>
-      <c  style="color:white;">hihihi</c>
-    </div>
-  </div>
-</div>
+
+    <div class="topnav">
+        <div class="topnav-right">
+          <div class="link-7">
+            <a  href="home.html">Home</a>
+            <a href="info.html" id="info">Info&nbsp;&nbsp;&nbsp;&nbsp;</a>
+
+          </div>
+        </div>
+      </div>
+      <div id="navbar">
+        <a class="active" href="#info">About Food Detector&nbsp;</a>
+        <a href="#prepro">Data Preprocessing&nbsp;</a>
+        <a href="#analysis">Data Analysis&nbsp;</a>
+        <a href="#result">Result&nbsp;</a>
+
+
+      </div>
+      <script>
+          window.onscroll = function() {myFunction()};
+
+          var navbar = document.getElementById("navbar");
+          var sticky = navbar.offsetTop;
+
+          function myFunction() {
+            if (window.pageYOffset >= sticky) {
+              navbar.classList.add("sticky")
+            } else {
+              navbar.classList.remove("sticky");
+            }
+          }
+          </script>
+            <div id="info">
+              <h2>&nbsp;&nbsp;#About Food Detector</h2>
+              <hr>
+              <table style="border-collapse: collapse; border-left:0px;">
+                <tr>
+                  <td>
+                      <img src="fastlogo.png" style="width: 400 px">
+                  </td>
+                  <td width=2048 >
+                     <pre style="text-indent: 40px; font-family: Georgia, 'Times New Roman', Times, serif; font-size :25px"><b>   Food Detector is a 'Food Recommendation' system</b>  which is using <ins><i>Instagram</i></ins> tag.
+
+
+                                                                              &lt; Reason for making &gt;
+
+          The reason why we made this is finding real tasty restaurant. We usually search many restaurants on the
+      Internet for getting recommendation. However, on the internet, there are many restaurants which are not
+      real tasty restaurants but self promotion. So, we want to find out the real tasty restaurants that the public
+      really liked.
+
+
+                                                                                &lt; Using Instagram &gt;
+
+          For obtaining public opinion, we thought using SNS is good for our intention. Among many SNS, especially
+    <b><i>Instagram</i></b> is appropriate for finding data. Because Instagram users are increasing, and they post a lot of
+    contents related to restaurants.
+
+                     <img src="sns.png">
+
+                                                                                &lt; Why we use #존맛 &gt;
+
+          The most frequent tag related to food is #먹스타그램. However, this tag are not related to specific taste.
+    So, we had outcome of unrelated result. Therefore, we used #존맛, because it shows us result related to the
+    taste. Even though this is a slang in SNS, it is the most widely used category tag to show the taste.
+                                      </pre>
+
+                  </td>
+                </tr>
+              </table>
+              <hr >
+              <h2 id="prepro">&nbsp;&nbsp;#Data Preprocessing</h2>
+              <div>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="prepro.png">
+              </div>
+              <hr>
+              <h2 >&nbsp;&nbsp;#Data Analysis</h2>
+              <div id="analysis">
+
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="analysis.png">
+              </div>
+              <hr>
+              <h2 id="result">&nbsp;&nbsp;#Result</h2>
+              <div >
+
+                  <img  width= 1000 src="result1.png">
+                  <img  height=700 src="result2.png">
+              </div>
+              <div><p onclick="window.scrollTo(0,0);" style="font-size:50px;"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Top</b>&nbsp;<s class="arrow up" ></s></p></div>
+
 
 
 
